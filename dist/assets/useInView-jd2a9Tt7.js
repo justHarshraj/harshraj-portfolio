@@ -1,0 +1,1 @@
+import{r}from"./three-vendor-rCTOi3Oo.js";const f=n=>{const s=r.useRef(null),[o,c]=r.useState(!1);return r.useEffect(()=>{const e=s.current,t=new IntersectionObserver(([u])=>{c(u.isIntersecting)},{threshold:.1,...n});return e&&t.observe(e),()=>{e&&t.unobserve(e)}},[]),[s,o]};export{f as u};
