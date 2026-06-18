@@ -52,9 +52,9 @@ function App() {
           </div>
         }>
           <AboutSection />
-          <SkillsSection />
           <ProjectsSection />
           <CertificationsSection />
+          <SkillsSection />
           <TerminalSection />
           <ContactSection />
         </Suspense>
