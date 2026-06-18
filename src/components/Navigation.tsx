@@ -89,7 +89,7 @@ export const Navigation = () => {
               HARSH.RAJ
             </motion.div>
 
-            <div className="hidden md:flex space-x-4 lg:space-x-8">
+            <div className="hidden lg:flex space-x-4 xl:space-x-8">
               {navLinks.map((link) => (
                 <motion.button
                   key={link.name}
@@ -116,7 +116,7 @@ export const Navigation = () => {
             </div>
 
             <motion.button
-              className="md:hidden text-gray-300 p-2 -mr-2"
+              className="lg:hidden text-gray-300 p-2 -mr-2"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -133,7 +133,7 @@ export const Navigation = () => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-30 md:hidden"
+            className="fixed inset-0 z-30 lg:hidden"
         >
           <div className="absolute inset-0 bg-black/80 backdrop-blur-lg" onClick={() => setIsOpen(false)} />
           <motion.div className="absolute right-0 top-0 h-full w-[75vw] max-w-[300px] bg-[#1a1a1a] border-l border-gray-700 p-6 sm:p-8 flex flex-col">

@@ -80,7 +80,7 @@ export const TerminalSection = () => {
     <section
       id="terminal"
       ref={ref}
-      className="min-h-screen flex items-center justify-center py-16 md:py-20 relative"
+      className="min-h-screen flex flex-col pt-24 md:pt-32 pb-16 relative"
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <motion.div

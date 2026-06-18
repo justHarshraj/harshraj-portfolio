@@ -27,7 +27,7 @@ export const AboutSection = () => {
     <section
       id="about"
       ref={ref}
-      className="min-h-screen flex items-center justify-center py-16 md:py-20 relative"
+      className="min-h-screen flex flex-col pt-24 md:pt-32 pb-16 relative"
       style={{ background: 'linear-gradient(180deg, rgba(7,7,9,0.3) 0%, rgba(20,20,25,0.4) 100%)' }}
     >
       <div className="container mx-auto px-4 sm:px-6">

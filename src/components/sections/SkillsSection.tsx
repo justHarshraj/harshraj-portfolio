@@ -127,7 +127,7 @@ export const SkillsSection = () => {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen flex flex-col items-center justify-start py-16 md:py-24 relative overflow-hidden"
+      className="min-h-screen flex flex-col pt-24 md:pt-32 pb-16 relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, rgba(7,7,9,0.3) 0%, rgba(20,20,25,0.4) 100%)',
       }}

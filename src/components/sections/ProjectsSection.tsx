@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 import { Code, Globe, BarChart3, ExternalLink, CheckSquare, Cpu, X } from 'lucide-react';
@@ -10,7 +11,7 @@ const projects = [
     icon: Code,
     tags: ['React', 'TypeScript', 'GitHub API', 'TailwindCSS'],
     gradient: 'from-gray-700 to-gray-900',
-    liveLink: 'https://gitcv-o4ya8ediw-harshrajs1k-5992s-projects.vercel.app/',
+    liveLink: 'https://gitcv-rouge.vercel.app',
     githubLink: 'https://github.com/justHarshraj/gitcv',
   },
   {
@@ -29,8 +30,8 @@ const projects = [
     icon: CheckSquare,
     tags: ['HTML5', 'CSS3', 'JavaScript', 'DOM API'],
     gradient: 'from-gray-700 to-gray-900',
-    liveLink: 'https://justharshraj.github.io/TASK-MANAGER-APP/',
-    githubLink: 'https://github.com/justHarshraj/TASK-MANAGER-APP',
+    liveLink: 'https://justharshraj.github.io/TASKMASTER-PRO/',
+    githubLink: 'https://github.com/justHarshraj/TASKMASTER-PRO',
   },
   {
     title: 'Project Umbrella',
@@ -96,7 +97,7 @@ export const ProjectsSection = () => {
     <section
       id="projects"
       ref={ref}
-      className="min-h-screen flex items-center justify-center py-16 md:py-20 relative"
+      className="min-h-screen flex flex-col pt-24 md:pt-32 pb-16 relative"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <motion.h2
@@ -123,7 +124,7 @@ export const ProjectsSection = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="relative h-72 sm:h-80 md:h-[350px]"
+                className="relative h-[340px] sm:h-[380px] md:h-[400px] lg:h-[420px]"
                 style={{ perspective: '1000px' }}
               >
                 <motion.div
@@ -251,37 +252,40 @@ export const ProjectsSection = () => {
         </motion.div>
       </div>
 
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-2 sm:p-4 backdrop-blur-sm"
-          >
+      {createPortal(
+        <AnimatePresence>
+          {selectedImage && (
             <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full bg-[#1a1a1a] border border-[rgba(192,192,192,0.2)] rounded-lg md:rounded-2xl overflow-hidden p-1 sm:p-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-2 sm:p-4 backdrop-blur-sm"
             >
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 border border-[rgba(192,192,192,0.2)] text-gray-300 hover:text-white transition-colors"
+              <motion.div
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-4xl w-full bg-[#1a1a1a] border border-[rgba(192,192,192,0.2)] rounded-lg md:rounded-2xl overflow-hidden p-1 sm:p-2"
               >
-                <X className="w-5 h-5" />
-              </button>
-              <img
-                src={selectedImage}
-                alt="Project Preview"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-              />
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 border border-[rgba(192,192,192,0.2)] text-gray-300 hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+                <img
+                  src={selectedImage}
+                  alt="Project Preview"
+                  className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 };
