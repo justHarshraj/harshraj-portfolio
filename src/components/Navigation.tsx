@@ -58,9 +58,11 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -133,7 +135,7 @@ export const Navigation = () => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-30 lg:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
         >
           <div className="absolute inset-0 bg-black/80 backdrop-blur-lg" onClick={() => setIsOpen(false)} />
           <motion.div className="absolute right-0 top-0 h-full w-[75vw] max-w-[300px] bg-[#1a1a1a] border-l border-gray-700 p-6 sm:p-8 flex flex-col">

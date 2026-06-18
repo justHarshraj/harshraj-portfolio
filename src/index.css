@@ -149,9 +149,6 @@ button, input, textarea, select {
 /* ===== MOBILE NAVIGATION BODY SCROLL LOCK ===== */
 body.nav-open {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
 }
 
 /* ===== LANDSCAPE PHONE ADJUSTMENTS ===== */
